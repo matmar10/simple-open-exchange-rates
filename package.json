@@ -1,28 +1,46 @@
 {
-  "name": "currency-converter",
+  "name": "simple-open-exchange-rates",
   "version": "0.1.12",
-  "description": "Currency Converter for openexchangerates.org",
+  "description": "Simple currency conversion using OpenExchangeRates.org",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha spec/tests.js --exit",
-    "start": "node index.js"
+    "release:patch": "./node_modules/.bin/release-it patch",
+    "release:minor": "./node_modules/.bin/release-it minor",
+    "release:major": "./node_modules/.bin/release-it major"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mamarildon/npm-currency-converter.git"
+    "url": "https://github.com/matmar10/simple-open-exchange-rates.git"
   },
   "keywords": [
     "currency",
     "convert",
     "exchange",
+    "open",
+    "free",
+    "money",
+    "fx",
+    "foreign",
     "rates"
   ],
-  "author": "donmamaril.io",
+  "contributors": [
+    {
+      "name": "Don Mamaril",
+      "email": "mamarildon@gmail.com",
+      "url": "https://www.linkedin.com/in/donmamaril"
+    },
+    {
+      "name": "Matthew J. Martin",
+      "email": "matthew.mar10@gmail.com",
+      "url": "https://www.linkedin.com/in/matthewjosephmartin"
+    }
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mamarildon/npm-currency-converter/issues"
+    "url": "https://github.com/matmar10/simple-open-exchange-rates/issues"
   },
-  "homepage": "https://github.com/mamarildon/npm-currency-converter",
+  "homepage": "https://github.com/matmar10/simple-open-exchange-rates",
   "dependencies": {
     "bluebird": "^2.3.2",
     "request": "^2.40.0"
@@ -30,6 +48,21 @@
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "release-it": "^13.4.0"
+  },
+  "release-it": {
+    "git": {
+      "commit": true,
+      "requireUpstream": false,
+      "tag": true,
+      "push": true
+    },
+    "github": {
+      "release": true
+    },
+    "npm": {
+      "publish": true
+    }
   }
 }
