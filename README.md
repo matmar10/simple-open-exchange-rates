@@ -1,13 +1,13 @@
-npm-currency-converter
-=========================
+Simple Open Exchange Rates
+==========================
 
-Conversion rates between currencies and rate conversion using [openexchangerates](https://openexchangerates.org).
+Extremely simple way to convert rates between currencies using rates at [OpenExchangeRates.org](https://openexchangerates.org).
 
 Pulls the exchange rate remotely and saves locally to a text file.
 
 # Getting Started
 
-Register for a client key at [openexchangerates.org](https://openexchangerates.org/signup/free)
+Register for a client key at [OpenExchangeRates.org](https://openexchangerates.org/signup/free)
 
 Install the package:
 
@@ -40,38 +40,55 @@ that uses live rates from [openexchangerates.org](https://openexchangerates.org/
 
 Response:
 
-```
-cc.rates(1, 'USD', 'EUR')
-  .then(function(converted) {
-    // {
-    //    "currency": "EUR",
-    //    "symbol": "€",
-    //    "amount": 0.76
-    // }
-  });
+```JavaScript
+const converted = await cc.rates(1, 'USD', 'EUR');
+// {
+//    "currency": "EUR",
+//    "symbol": "€",
+//    "amount": 0.76
+// }
 ```
 
 ## .rates(convertFrom, convertTo, [live])
 
 Returns the conversion rate between two currencies:
 
+```JavaScript
+const rate = await cc.rates('USD', 'EUR');
+// 0.76
 ```
-cc.rates('USD', 'EUR')
-  .then(function(rate) {
-    // rate => 0.76
-  });
+
+Fetch the live rate:
+
+```JavaScript
+const rate = await cc.rates('USD', 'EUR', true);
+// 0.76
 ```
 
 ## .currencies
 
 The map of currency codes to info about the currency
 
-```
+```JavaScript
 cc.currencies.EUR
 // {
 //    "currency": "EUR",
 //    "symbol": "€",
 //    "amount": 0.76
 // }
-
 ```
+
+## .shutdown
+
+Stop the periodic polling for rates.
+
+```JavaScript
+cc.shutdown();
+```
+
+If you don't do this, your script will never terminate normally since
+there will be a dangling timeout.
+
+# Credits
+
+A fork of [dmamaril/npm-currency-converter](https://github.com/dmamaril/npm-currency-converter) but that project is unmaintained.
