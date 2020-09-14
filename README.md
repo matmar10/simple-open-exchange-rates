@@ -12,7 +12,7 @@ Register for a client key at [OpenExchangeRates.org](https://openexchangerates.o
 Install the package:
 
 ```
-npm install currency-converter
+npm install simple-open-exchange-rates
 ```
 
 Use it:
