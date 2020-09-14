@@ -12,13 +12,13 @@ Register for a client key at [OpenExchangeRates.org](https://openexchangerates.o
 Install the package:
 
 ```
-npm install currency-converter
+npm install simple-open-exchange-rates
 ```
 
 Use it:
 
 ```
-var cc = require('currency-converter')({
+var cc = require('simple-open-exchange-rates')({
   CLIENTKEY: YOUR_OPEN_EXCHANGE_RATES_KEY, [fetchInterval: 3600000]
 });
 ```
@@ -41,7 +41,7 @@ that uses live rates from [openexchangerates.org](https://openexchangerates.org/
 Response:
 
 ```JavaScript
-const converted = await cc.rates(1, 'USD', 'EUR');
+const converted = await cc.convert(1, 'USD', 'EUR');
 // {
 //    "currency": "EUR",
 //    "symbol": "€",
