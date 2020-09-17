@@ -47,7 +47,9 @@ currency_converter.rates = function (convertFrom, convertTo, options) {
 
 module.exports = function (configs) {
   oxr.URL += configs.CLIENTKEY;
-  oxr.init(configs.fetchInterval);
+  if (configs.live !== false) {
+    oxr.init(configs.fetchInterval, configs);
+  }
 
   return currency_converter;
 };
