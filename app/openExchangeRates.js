@@ -13,9 +13,10 @@ var intervalId = null;
 
 module.exports.URL = 'http://openexchangerates.org/api/latest.json?app_id=';
 
-module.exports.init = function (fetchInterval) {
+module.exports.init = function (fetchInterval, options) {
   fetchInterval = fetchInterval || 3600000;
-  intervalId = setInterval(module.exports.fetchOptions, fetchInterval, {});
+  intervalId = setInterval(module.exports.fetchOptions, fetchInterval, options);
+  module.exports.fetchOptions(options);
 };
 
 module.exports.createProxy = function (task, options) {
